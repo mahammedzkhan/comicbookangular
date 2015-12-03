@@ -8,10 +8,8 @@
  * Controller of the comicbooksApp
  */
 angular.module('comicbooksApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', function ($scope, apiService) {
+  	apiService.getAllMovies(function(response) { 
+              $scope.movies = response.data;
+          });
+     });
