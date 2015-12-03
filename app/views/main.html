@@ -1,6 +1,8 @@
-<div ng-controller="MainCtrl" class="row marketing">
-  <h4>Movies</h4>
-  <div ng-repeat="movie in movies.results">
-    {{movie.budget}}
+<div ng-controller="MainCtrl" class="row">
+  <h1>Movies</h1>
+  <div ng-repeat="serie in series.results" class="col-md-4">
+    <h3>{{serie.name}}</h3>
+    <img src="{{serie.image.small_url}}" alt="{{serie.name}}" title="{{serie.name}}" width="200px" height="300px">
+    <p>{{serie.deck}}</p>
   </div>
 </div>

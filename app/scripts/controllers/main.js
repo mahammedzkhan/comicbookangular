@@ -9,7 +9,7 @@
  */
 angular.module('comicbooksApp')
   .controller('MainCtrl', function ($scope, apiService) {
-  	apiService.getAllMovies(function(response) { 
-              $scope.movies = response.data;
+  	apiService.getAllSeries(function(response) { 
+              $scope.series = response.data;
           });
      });
