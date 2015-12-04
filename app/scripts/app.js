@@ -41,6 +41,16 @@ angular
         controller: 'SerieCtrl',
         controllerAs: 'serie'
       })
+      .when('/series/:id', {
+        templateUrl: 'views/singleserie.html',
+        controller: 'SingleserieCtrl',
+        controllerAs: 'serie'
+      })
+      .when('/singleserie', {
+        templateUrl: 'views/singleserie.html',
+        controller: 'SingleserieCtrl',
+        controllerAs: 'singleserie'
+      })
       .otherwise({
         redirectTo: '/series'
       });

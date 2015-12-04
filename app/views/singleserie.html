@@ -1,0 +1,13 @@
+<div ng-controller="SingleserieCtrl">
+  <div class="col-md-12">
+    <h1>{{singleserie.results.name}}</h1>
+    <img src="{{singleserie.results.image.screen_url}}" alt="{{singleserie.results.name}}" title="{{singleserie.results.name}}">
+    <div ng-bind-html="singleserie.results.description"></div>
+    <h2>Episodes</h2>
+    <div ng-repeat="episode in singleserie.results.episodes">
+    	<p>{{episode.name}}</p>
+    </div>
+    <h3>Publisher</h3>
+    {{singleserie.results.publisher.name}}
+  </div>
+</div>

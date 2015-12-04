@@ -14,12 +14,21 @@ angular.module('comicbooksApp')
     var args = '&json_callback=JSON_CALLBACK&format=jsonp';
 
     this.getAllSeries = function(callback){
-      
+
     return $http({
 		  method: 'JSONP',
 		  url: 'http://www.comicvine.com/api/series_list' + apikey + args,
 		  responseType: 'jsonp'
 		}).then(callback);
+    };
+
+    this.getSerie = function(id, callback){
+      
+    return $http({
+      method: 'JSONP',
+      url: 'http://www.comicvine.com/api/series/'+ id  + apikey + args,
+      responseType: 'jsonp'
+    }).then(callback);
     };
 
     this.getAllMovies = function(callback){
