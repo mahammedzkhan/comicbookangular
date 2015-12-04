@@ -1,13 +1,13 @@
 <div ng-controller="SinglemovieCtrl">
   <div class="col-md-12">
-    <h1>{{singlemovie.results.name}}</h1>
-    <img src="{{singlemovie.results.image.screen_url}}" alt="{{singlemovie.results.name}}" title="{{singlemovie.results.name}}">
-    <div ng-bind-html="singlemovie.results.description"></div>
-    <h2>Episodes</h2>
-    <div ng-repeat="episode in singlemovie.results.episodes">
-    	<p>{{episode.name}}</p>
-    </div>
-    <h3>Publisher</h3>
-    {{singlemovie.results.publisher.name}}
+    <h1>{{singlemovie.results[0].name}}</h1>
+    <img src="{{singlemovie.results[0].image.medium_url}}" alt="{{singlemovie.results[0].name}}" title="{{singlemovie.results[0].name}}">
+    <div ng-bind-html="singlemovie.results[0].description"></div>
+    <p><b>Rating:</b> {{singlemovie.results[0].rating}} </p>
+    <p><b>Release date:</b> {{singlemovie.results[0].release_date | date}} </p>
+    <p><b>Budget:</b> {{singlemovie.results[0].budget | currency}} </p>
+    <p><b>Box office:</b> {{singlemovie.results[0].box_office_revenue | currency}} </p>
+    <h3 ng-show="singlemovie.results[0].studios">Studio(s)</h3>
+    <p ng-repeat="studio in singlemovie.results[0].studios" ng-show="studio.name">{{studio.name}}</p>
   </div>
 </div>
