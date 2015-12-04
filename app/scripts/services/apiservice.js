@@ -28,4 +28,12 @@ angular.module('comicbooksApp')
       responseType: 'jsonp'
     }).then(callback);
     };
+
+    this.getAllCharacters = function(callback){
+    return $http({
+      method: 'JSONP',
+      url: 'http://www.comicvine.com/api/characters' + apikey + args,
+      responseType: 'jsonp'
+    }).then(callback);
+    };
   });

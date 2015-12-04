@@ -1,0 +1,8 @@
+<div ng-controller="CharacterCtrl" class="row">
+  <h1>Characters</h1>
+  <div ng-repeat="character in characters.results" class="col-md-4">
+    <h3>{{character.name}}</h3>
+    <img src="{{character.image.small_url}}" alt="{{character.name}}" title="{{character.name}}" width="200px" height="300px">
+    <p>{{character.deck}}</p>
+  </div>
+</div>
