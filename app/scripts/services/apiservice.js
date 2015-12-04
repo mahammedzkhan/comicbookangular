@@ -43,7 +43,7 @@ angular.module('comicbooksApp')
       
     return $http({
       method: 'JSONP',
-      url: 'http://www.comicvine.com/api/movie/'+ id  + apikey + args,
+      url: 'http://www.comicvine.com/api/movies/' + apikey + args + '&filter=id:' + id,
       responseType: 'jsonp'
     }).then(callback);
     };
