@@ -24,9 +24,7 @@ angular
     localStorageServiceProvider.setPrefix('comicbooksApp');
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        redirectTo: '/serie'
       })
       .when('/movie', {
         templateUrl: 'views/movie.html',
@@ -37,6 +35,11 @@ angular
         templateUrl: 'views/character.html',
         controller: 'CharacterCtrl',
         controllerAs: 'character'
+      })
+      .when('/serie', {
+        templateUrl: 'views/serie.html',
+        controller: 'SerieCtrl',
+        controllerAs: 'serie'
       })
       .otherwise({
         redirectTo: '/'
