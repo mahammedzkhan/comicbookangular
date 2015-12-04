@@ -24,24 +24,24 @@ angular
     localStorageServiceProvider.setPrefix('comicbooksApp');
     $routeProvider
       .when('/', {
-        redirectTo: '/serie'
+        redirectTo: '/series'
       })
-      .when('/movie', {
+      .when('/movies', {
         templateUrl: 'views/movie.html',
         controller: 'MovieCtrl',
         controllerAs: 'movie'
       })
-      .when('/character', {
+      .when('/characters', {
         templateUrl: 'views/character.html',
         controller: 'CharacterCtrl',
         controllerAs: 'character'
       })
-      .when('/serie', {
+      .when('/series', {
         templateUrl: 'views/serie.html',
         controller: 'SerieCtrl',
         controllerAs: 'serie'
       })
       .otherwise({
-        redirectTo: '/serie'
+        redirectTo: '/series'
       });
   });
