@@ -42,6 +42,6 @@ angular
         controllerAs: 'serie'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/serie'
       });
   });
