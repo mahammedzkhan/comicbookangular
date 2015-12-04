@@ -1,0 +1,13 @@
+<div ng-controller="SinglemovieCtrl">
+  <div class="col-md-12">
+    <h1>{{singlemovie.results.name}}</h1>
+    <img src="{{singlemovie.results.image.screen_url}}" alt="{{singlemovie.results.name}}" title="{{singlemovie.results.name}}">
+    <div ng-bind-html="singlemovie.results.description"></div>
+    <h2>Episodes</h2>
+    <div ng-repeat="episode in singlemovie.results.episodes">
+    	<p>{{episode.name}}</p>
+    </div>
+    <h3>Publisher</h3>
+    {{singlemovie.results.publisher.name}}
+  </div>
+</div>

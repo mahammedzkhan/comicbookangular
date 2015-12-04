@@ -46,10 +46,10 @@ angular
         controller: 'SingleserieCtrl',
         controllerAs: 'serie'
       })
-      .when('/singleserie', {
-        templateUrl: 'views/singleserie.html',
-        controller: 'SingleserieCtrl',
-        controllerAs: 'singleserie'
+      .when('/movies/:id', {
+        templateUrl: 'views/singlemovie.html',
+        controller: 'SinglemovieCtrl',
+        controllerAs: 'singlemovie'
       })
       .otherwise({
         redirectTo: '/series'

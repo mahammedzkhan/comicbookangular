@@ -39,6 +39,15 @@ angular.module('comicbooksApp')
     }).then(callback);
     };
 
+    this.getMovie = function(id, callback){
+      
+    return $http({
+      method: 'JSONP',
+      url: 'http://www.comicvine.com/api/movie/'+ id  + apikey + args,
+      responseType: 'jsonp'
+    }).then(callback);
+    };
+
     this.getAllCharacters = function(callback){
     return $http({
       method: 'JSONP',

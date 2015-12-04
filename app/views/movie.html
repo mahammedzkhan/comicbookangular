@@ -1,8 +1,10 @@
 <div ng-controller="MovieCtrl" class="row">
   <h1>Movies</h1>
   <div ng-repeat="movie in movies.results" class="col-md-4">
-    <h3>{{movie.name}}</h3>
-    <img src="{{movie.image.small_url}}" alt="{{movie.name}}" title="{{movie.name}}" width="200px" height="300px">
-    <p>{{movie.deck}}</p>
+  	<a href="#/movies/{{movie.id}}">
+	    <h3>{{movie.name}}</h3>
+	    <img src="{{movie.image.small_url}}" alt="{{movie.name}}" title="{{movie.name}}" width="200px" height="300px">
+	    <p>{{movie.deck}}</p>
+    </a>
   </div>
 </div>
