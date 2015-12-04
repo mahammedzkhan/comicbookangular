@@ -1,0 +1,10 @@
+<div ng-controller="SinglecharacterCtrl">
+  <div class="col-md-12">
+    <h1>{{singlecharacter.results[0].name}}</h1>
+        <p><b>Aliases:</b> {{singlecharacter.results[0].aliases}} </p>
+        <p><b>Real name:</b> {{singlecharacter.results[0].real_name | date}} </p>
+    <img src="{{singlecharacter.results[0].image.medium_url}}" alt="{{singlecharacter.results[0].name}}" title="{{singlecharacter.results[0].name}}">
+    <div ng-bind-html="singlecharacter.results[0].description"></div>
+  </div>
+</div>
+
