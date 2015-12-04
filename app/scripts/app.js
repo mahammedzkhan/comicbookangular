@@ -51,6 +51,11 @@ angular
         controller: 'SinglemovieCtrl',
         controllerAs: 'singlemovie'
       })
+      .when('/characters/:id', {
+        templateUrl: 'views/singlecharacter.html',
+        controller: 'SinglecharacterCtrl',
+        controllerAs: 'singlecharacter'
+      })
       .otherwise({
         redirectTo: '/series'
       });
