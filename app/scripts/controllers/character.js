@@ -10,12 +10,17 @@
 angular.module('comicbooksApp')
   .controller('CharacterCtrl', function ($scope, apiService, localStorageService) {
     var characters = localStorageService.get('characters');
-  	if(characters && characters.length > 0){
+    var timestampChars = localStorageService.get('timestampChars');
+    var old = Date.now() - timestampChars;
+  	if( characters && characters.length > 0 && old >= 600) {
   		$scope.characters = JSON.parse(localStorageService.get('characters'));
+      console.log('fetch it from localStorage!!');
   	}else{
+      console.log('api call!!');
   		apiService.getAllCharacters(function(response) { 
         	$scope.characters = response.data;
             localStorageService.set('characters', JSON.stringify(response.data));
+            localStorageService.set('timestampChars', Date.now());
          });
   		}
   });
