@@ -17,7 +17,13 @@ describe('Controller: MovieCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(MovieCtrl.awesomeThings.length).toBe(3);
+  it('detect an hour in unix time', function () {
+    var timeStampMovie = 1449478729;
+    var now = 1449479329;
+    expect(now - timeStampMovie).toBe(600);
+  });
+
+  it('should return a promise', function () {
+    expect(scope.movies).not.toBe(null);
   });
 });
