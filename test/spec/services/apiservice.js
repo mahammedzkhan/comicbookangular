@@ -11,8 +11,9 @@ describe('Service: apiService', function () {
     apiService = _apiService_;
   }));
 
-  it('should do something', function () {
-    expect(!!apiService).toBe(true);
+  it('getAllSeries should return something', function () {
+    console.log(apiService.getAllSeries());
+    expect(apiService.getAllSeries()).not.toBe(null);
   });
 
 });
