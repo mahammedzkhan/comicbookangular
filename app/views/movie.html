@@ -1,10 +1,5 @@
 <div ng-controller="MovieCtrl" class="row">
-	<div class="input-group">
-      <input type="text" ng-model="search.name" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-    </div>
+	<search></search>
   <h1>Movies</h1>
   <div class="row">
   <div ng-repeat-start="movie in movies.results | filter:search:strict" class="col-md-4">
