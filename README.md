@@ -4,6 +4,8 @@ This project is generated with [yo angular generator](https://github.com/yeoman/
 
 Project is using Bootstrap for the grid/styling.
 
+Used localstorage to save API calls to avoid reaching API limit(calls get saved for 60 minutes).
+
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
