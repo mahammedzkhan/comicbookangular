@@ -6,11 +6,15 @@
       </span>
     </div>
   <h1>Movies</h1>
-  <div ng-repeat="movie in movies.results | filter:search:strict" class="col-md-4">
+  <div class="row">
+  <div ng-repeat-start="movie in movies.results | filter:search:strict" class="col-md-4">
   	<a href="#/movies/{{movie.id}}">
 	    <h3>{{movie.name}}</h3>
 	    <img src="{{movie.image.small_url}}" alt="{{movie.name}}" title="{{movie.name}}" width="200px" height="300px">
 	    <p>{{movie.deck}}</p>
     </a>
+  </div>
+  <div class="clearfix" ng-if="$index%3==2"></div>
+  <div ng-repeat-end=""></div>
   </div>
 </div>
