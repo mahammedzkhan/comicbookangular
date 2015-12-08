@@ -6,6 +6,8 @@ Project is using Bootstrap for the grid/styling.
 
 Used localstorage to save API calls to avoid reaching API limit(calls get saved for 60 minutes).
 
+The project can be viewed online here: [Online version](http://mahammedkhan.be/comics)
+
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
