@@ -10,12 +10,8 @@
  */
 angular
   .module('comicbooksApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
     'LocalStorageModule'
   ])
   .config(function ($routeProvider, $httpProvider, localStorageServiceProvider) {

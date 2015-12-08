@@ -6,7 +6,7 @@
   <div ng-repeat-start="serie in series.results | filter:search:strict" class="col-md-4">
   <a href="#/series/{{serie.id}}">
     <h3>{{serie.name}}</h3>
-    <img src="{{serie.image.small_url}}" alt="{{serie.name}}" title="{{serie.name}}" width="200px" height="300px">
+    <img ng-src="{{serie.image.small_url}}" alt="{{serie.name}}" title="{{serie.name}}" width="200px" height="300px">
     <p>{{serie.deck}}</p>
   </a>
   </div>
