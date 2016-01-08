@@ -8,7 +8,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<!--     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+ -->    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -22,7 +23,23 @@
 
     <!-- Add your site or application content here -->
     <div class="header">
-      <div class="navbar navbar-default" role="navigation">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+      <h2>
+          <span>Comics and Series</span>
+        </h2>
+        <a href="#/"><md-button class="md-button" aria-label="Settings">
+          Comics
+        </md-button></a>
+        <a ng-href="#/movies"><md-button class="md-button" aria-label="Settings">
+          Series
+        </md-button></a>
+        <a ng-href="#/characters"><md-button class="md-button" aria-label="Settings">
+          Characters
+        </md-button></a>
+      </div>
+    </md-toolbar>
+      <!-- <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
 
@@ -45,7 +62,7 @@
             </ul>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div class="container">
@@ -66,6 +83,10 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
