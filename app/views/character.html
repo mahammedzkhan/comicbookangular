@@ -1,39 +1,14 @@
-<div class="col-md-12">
+<section>
 	<search></search>
-  <h1>Characters</h1>
-  <!-- <md-content class="md-padding" layout="row" layout-wrap layout-align="center start" layout-xs="column">
-    <div flex="50" flex-sm="100" flex-xs="100" layout="column">
-     <md-card ng-repeat-start="character in characters.results | filter:search:strict">
-        <a href="#/characters/{{character.id}}">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">{{character.name}}</span>
-          </md-card-title-text>
-        </md-card-title>
-        <md-card-content layout="row" layout-align="space-between">
-          <div class="md-media-xl card-media">
-            <img ng-src="{{character.image.small_url}}" alt="{{character.name}}" title="{{character.name}}">
-          </div>
-            <p>{{character.deck}}</p>
-        </md-card-content>
-            </a>
-      </md-card>   
-  <div class="clearfix" ng-if="$index%3==2"></div>
-    <div ng-repeat-end=""></div>
-    </div>
-  </md-content> -->
-
-  <md-grid-list md-cols="4" md-row-height="1:2"> 
+        <md-subheader class="md-primary">Characters</md-subheader>
+  <md-grid-list md-cols="8" md-row-height="1:1"> 
     <md-grid-tile class="gray" ng-repeat="character in characters.results | filter:search:strict">
         <a href="#/characters/{{character.id}}">
         <md-grid-tile-header>
           <h3>{{character.name}}</h3>
         </md-grid-tile-header>
         <img ng-src="{{character.image.small_url}}" alt="{{character.name}}" title="{{character.name}}" width="100%" height="400px">
-        <md-content>
-        <p class="md-body-1">{{character.deck}}</p>
-        </md-content>
         </a>
     </md-grid-tile>
   </md-grid-list>
-</div>
+</section>

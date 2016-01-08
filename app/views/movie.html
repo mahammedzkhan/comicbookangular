@@ -1,15 +1,14 @@
-<div class="row">
-	<search></search>
-  <h1>Movies</h1>
-  <div class="row">
-  <div ng-repeat-start="movie in movies.results | filter:search:strict" class="col-md-4">
-  	<a href="#/movies/{{movie.id}}">
-	    <h3>{{movie.name}}</h3>
-	    <img ng-src="{{movie.image.small_url}}" alt="{{movie.name}}" title="{{movie.name}}" width="200px" height="300px">
-	    <p>{{movie.deck}}</p>
-    </a>
-  </div>
-  <div class="clearfix" ng-if="$index%3==2"></div>
-  <div ng-repeat-end=""></div>
-  </div>
-</div>
+<section>
+  <search></search>
+        <md-subheader class="md-primary">Movies</md-subheader>
+  <md-grid-list md-cols="8" md-row-height="1:1"> 
+    <md-grid-tile class="gray" ng-repeat="movie in movies.results | filter:search:strict">
+        <a href="#/movies/{{movie.id}}">
+        <md-grid-tile-header>
+          <h3>{{movie.name}}</h3>
+        </md-grid-tile-header>
+        <img ng-src="{{movie.image.small_url}}" alt="{{movie.name}}" title="{{movie.name}}" width="100%" height="400px">
+        </a>
+    </md-grid-tile>
+  </md-grid-list>
+</section>
