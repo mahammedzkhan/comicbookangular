@@ -10,6 +10,17 @@
 
         	</md-card-content>
         </md-card>
+
+        <md-card>
+			<md-card-content>
+				<p class="md-subhead" ng-if="singlecharacter.results[0].gender == '1' "><b class="md-body-2">Gender</b> Male</p>
+			    <p class="md-subhead" ng-if="singlecharacter.results[0].gender == '2' "><b class="md-body-2">Gender</b> Female</p>
+        		<p class="md-subhead"><b class="md-body-2">First appeareance</b> {{singlecharacter.results[0].first_appeared_in_issue.name}}</p>
+        		<p class="md-subhead"><b class="md-body-2">Appears in</b> {{singlecharacter.results[0].count_of_issue_appearances}} issues</p>
+        		<p class="md-subhead"><b class="md-body-2">Character type</b> {{singlecharacter.results[0].origin.name}} </p>
+
+        	</md-card-content>
+        </md-card>
      </div>
     <div flex="50" flex-sm="100" flex-xs="100" layout="column">
 	    <md-card>
