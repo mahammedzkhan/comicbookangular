@@ -1,6 +1,7 @@
-<section>
-	<search></search>
-        <md-subheader class="md-primary">Characters</md-subheader>
+	<div>
+    <search></search>
+  </div>
+  <section>
   <md-grid-list md-cols="8" md-row-height="1:1"> 
     <md-grid-tile class="gray" ng-repeat="character in characters.results | filter:search:strict">
         <a href="#/characters/{{character.id}}">
