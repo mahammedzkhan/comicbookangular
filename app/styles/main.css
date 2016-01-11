@@ -17,3 +17,7 @@ md-grid-tile a {
 .search {
     margin-bottom: 100px;
 }
+
+md-card-content img {
+	width: 100%;
+}

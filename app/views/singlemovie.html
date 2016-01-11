@@ -9,7 +9,7 @@
         </md-card>
     </div>
     <div flex="50" flex-sm="100" flex-xs="100" layout="column"> 
-    <md-card>
+    <md-card ng-if="singlemovie.results[0].description.length > 0">
         <md-card-content>
             <md-content ng-bind-html="singlemovie.results[0].description"></md-content>
         </md-card-content>
