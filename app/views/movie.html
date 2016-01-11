@@ -2,7 +2,7 @@
   <search></search>
   <md-grid-list md-cols="8" md-row-height="1:1"> 
     <md-grid-tile class="gray" ng-repeat="movie in movies.results | filter:search:strict">
-        <a href="#/movies/{{movie.id}}">
+        <a ng-href="#/movies/{{movie.id}}">
         <md-grid-tile-header>
           <h3>{{movie.name}}</h3>
         </md-grid-tile-header>

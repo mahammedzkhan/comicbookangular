@@ -4,7 +4,7 @@
   <section>
   <md-grid-list md-cols="8" md-row-height="1:1"> 
     <md-grid-tile class="gray" ng-repeat="character in characters.results | filter:search:strict">
-        <a href="#/characters/{{character.id}}">
+        <a ng-href="#/characters/{{character.id}}">
         <md-grid-tile-header>
           <h3>{{character.name}}</h3>
         </md-grid-tile-header>

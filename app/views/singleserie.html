@@ -23,7 +23,7 @@
                 <md-list>
                 <md-subheader class="md-no-sticky">{{singleserie.results.characters.length}} characters appear in this series</md-subheader>
                   <md-list-item ng-repeat="character in singleserie.results.characters">
-                     <span><a href="#/characters/{{character.id}}">{{character.name}}</a></span>
+                     <span><a ng-href="#/characters/{{character.id}}">{{character.name}}</a></span>
                   </md-list-item>
                 </md-list>
             </md-content>
