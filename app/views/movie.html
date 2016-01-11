@@ -1,5 +1,6 @@
 <section>
   <search></search>
+      <md-progress-circular md-mode="indeterminate" ng-show="isLoading"></md-progress-circular>
   <md-grid-list md-cols="8" md-row-height="1:1"> 
     <md-grid-tile class="gray" ng-repeat="movie in movies.results | filter:search:strict">
         <a ng-href="#/movies/{{movie.id}}">
