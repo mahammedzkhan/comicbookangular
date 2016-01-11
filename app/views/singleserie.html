@@ -1,23 +1,53 @@
-<div>
-  <div class="col-md-12">
-    <h1>{{singleserie.results.name}}</h1>
-    <img ng-src="{{singleserie.results.image.screen_url}}" alt="{{singleserie.results.name}}" title="{{singleserie.results.name}}">
-    <div class="panel panel-default">
-      <div class="panel-heading">Description</div>
-      <div class="panel-body" ng-bind-html="singleserie.results.description"></div>
-    </div>
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading">Episodes</div>
+<md-content class="md-padding" layout="row" layout-wrap layout-align="center start" layout-xs="column">
+    <div flex="50" flex-sm="100" flex-xs="100" layout="column">
+        <md-card>
+            <md-card-content>
+                <h1 class="md-title">{{singleserie.results.name}}</h1>
+                <img ng-src="{{singleserie.results.image.screen_url}}" alt="{{singleserie.results.name}}" title="{{singleserie.results.name}}">
 
-      <!-- Table -->
-      <table class="table">
-        <tr ng-repeat="episode in singleserie.results.episodes">
-            <td>{{episode.name}}</td>
-        </tr>
-    </table>
+            </md-card-content>
+        </md-card>
+        <md-card>
+            <md-card-content>
+                <h2 class="md-title">Extra information</h2>
+                <p class="md-subhead"><b>Publisher</b> {{singleserie.results.publisher.name}}</p>
+                <p class="md-subhead"><b>Start year</b> {{singleserie.results.start_year}}</p>
+                <p></p>
+
+            </md-card-content>
+        </md-card>
+
+        <md-card>
+        <md-card-content>
+            <md-content>
+                <md-list>
+                <md-subheader class="md-no-sticky">{{singleserie.results.characters.length}} characters appear in this series</md-subheader>
+                  <md-list-item ng-repeat="character in singleserie.results.characters">
+                     <span><a href="#/characters/{{character.id}}">{{character.name}}</a></span>
+                  </md-list-item>
+                </md-list>
+            </md-content>
+        </md-card-content>
+    </md-card>
+
     </div>
-    <h3>Publisher</h3>
-    {{singleserie.results.publisher.name}}
-  </div>
-</div>
+    <div flex="50" flex-sm="100" flex-xs="100" layout="column"> 
+    <md-card>
+        <md-card-content>
+            <md-content ng-bind-html="singleserie.results.description"></md-content>
+        </md-card-content>
+    </md-card>
+    <md-card>
+        <md-card-content>
+            <md-content>
+                <md-list>
+                <md-subheader class="md-no-sticky">{{singleserie.results.count_of_episodes}} episodes</md-subheader>
+                  <md-list-item ng-repeat="episode in singleserie.results.episodes | orderBy: -singleserie.results.episodes.episode.episode_number">
+                     <span><b>{{episode.episode_number}}</b> {{episode.name}}</span>
+                  </md-list-item>
+                </md-list>
+            </md-content>
+        </md-card-content>
+    </md-card>
+    </div>
+</md-content>
