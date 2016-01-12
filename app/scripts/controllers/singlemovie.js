@@ -8,11 +8,11 @@
  * # SinglemovieCtrl
  * Controller of the comicbooksApp
  */
-function SingleMovieCtrl(apiService, $routeParams) {
+function SingleMovieCtrl(apiFactory, $routeParams) {
 	var vm = this;
     var id = $routeParams.id;
     vm.isLoading = true;
-  		apiService.getMovie(id, function(response) { 
+  		apiFactory.getMovie(id, function(response) { 
         	vm.singlemovie = response.data;
         	console.log(response.data);
         	vm.isLoading = false;

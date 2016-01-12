@@ -8,11 +8,11 @@
  * # SinglecharacterCtrl
  * Controller of the comicbooksApp
  */
-function SingleCharacterCtrl($routeParams, apiService) {
+function SingleCharacterCtrl($routeParams, apiFactory) {
 	var vm = this;
     var id = $routeParams.id;
     vm.isLoading = true;
-  	apiService.getCharacter(id, function(response) { 
+  	apiFactory.getCharacter(id, function(response) { 
         	vm.singlecharacter = response.data;
         	console.log(response.data);
         	vm.isLoading = false;

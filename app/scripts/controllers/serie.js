@@ -8,7 +8,7 @@
  * # SerieCtrl
  * Controller of the comicbooksApp
  */
-function SerieCtrl(apiService, localStorageService) {
+function SerieCtrl(apiFactory, localStorageService) {
     var vm = this;
     var series = localStorageService.get('series');
     var timestampSeries = localStorageService.get('timestampSeries');
@@ -18,7 +18,7 @@ function SerieCtrl(apiService, localStorageService) {
       vm.series = JSON.parse(localStorageService.get('series'));
       vm.isLoading = false;
     }else{
-      apiService.getAllSeries(function(response) { 
+      apiFactory.getAllSeries(function(response) { 
           vm.series = response.data;
             localStorageService.set('series', JSON.stringify(response.data));
             localStorageService.set('timestampSeries', Date.now());

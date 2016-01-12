@@ -8,7 +8,7 @@
  * # CharacterCtrl
  * Controller of the comicbooksApp
  */
-function CharacterCtrl(apiService, localStorageService) {
+function CharacterCtrl(apiFactory, localStorageService) {
     var vm = this;
     var characters = localStorageService.get('characters');
     var timestampChars = localStorageService.get('timestampChars');
@@ -20,7 +20,7 @@ function CharacterCtrl(apiService, localStorageService) {
        vm.isLoading = false;
     }else{
       console.log('api call!!');
-      apiService.getAllCharacters(function(response) { 
+      apiFactory.getAllCharacters(function(response) { 
           vm.characters = response.data;
             localStorageService.set('characters', JSON.stringify(response.data));
             localStorageService.set('timestampChars', Date.now());

@@ -8,11 +8,11 @@
  * # SingleserieCtrl
  * Controller of the comicbooksApp
  */
-function SingleSerieCtrl(apiService, $routeParams) {
+function SingleSerieCtrl(apiFactory, $routeParams) {
 	var vm = this;
   	var id = $routeParams.id;
   	vm.isLoading = true;
-  		apiService.getSerie(id, function(response) { 
+  		apiFactory.getSerie(id, function(response) { 
         	vm.singleserie = response.data;
         	console.log(response.data);
         	vm.isLoading = false;

@@ -8,7 +8,7 @@
  * # MovieCtrl
  * Controller of the comicbooksApp
  */
-function MovieCtrl(apiService, localStorageService) {
+function MovieCtrl(apiFactory, localStorageService) {
     var vm = this;
     var movies = localStorageService.get('movies');
     var timestampMovies = localStorageService.get('timestampMovies');
@@ -18,7 +18,7 @@ function MovieCtrl(apiService, localStorageService) {
       vm.movies = JSON.parse(localStorageService.get('movies'));
       vm.isLoading = false;
     }else{
-      apiService.getAllMovies(function(response) { 
+      apiFactory.getAllMovies(function(response) { 
           vm.movies = response.data;
             localStorageService.set('movies', JSON.stringify(response.data));
             localStorageService.set('timestampMovies', Date.now());
