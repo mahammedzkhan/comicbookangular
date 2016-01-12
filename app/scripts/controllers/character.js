@@ -14,20 +14,23 @@ function CharacterCtrl(apiFactory, localStorageService) {
     var timestampChars = localStorageService.get('timestampChars');
     var old = Date.now() - timestampChars;
     vm.isLoading = true;
+    function getData() {
+        return apiFactory.getAllCharacters(function(response) { 
+          vm.characters = response.data;
+            localStorageService.set('characters', JSON.stringify(response.data));
+            localStorageService.set('timestampChars', Date.now());
+             vm.isLoading = false;
+             return vm.characters;
+        });
+      }
     if( characters && characters.length > 0 && old >= 600) {
       vm.characters = JSON.parse(localStorageService.get('characters'));
       console.log('fetch it from localStorage!!');
        vm.isLoading = false;
     }else{
       console.log('api call!!');
-      apiFactory.getAllCharacters(function(response) { 
-          vm.characters = response.data;
-            localStorageService.set('characters', JSON.stringify(response.data));
-            localStorageService.set('timestampChars', Date.now());
-             vm.isLoading = false;
-             return vm.characters;
-         });
-      }
+      getData();
+    }
 }
 
 angular.module('comicbooksApp')

@@ -14,17 +14,21 @@ function MovieCtrl(apiFactory, localStorageService) {
     var timestampMovies = localStorageService.get('timestampMovies');
     var old = Date.now() - timestampMovies;
     vm.isLoading = true;
-    if(movies && movies.length > 0 && old >= 600){
-      vm.movies = JSON.parse(localStorageService.get('movies'));
-      vm.isLoading = false;
-    }else{
-      apiFactory.getAllMovies(function(response) { 
+    function getData() {
+      return apiFactory.getAllMovies(function(response) { 
           vm.movies = response.data;
             localStorageService.set('movies', JSON.stringify(response.data));
             localStorageService.set('timestampMovies', Date.now());
             vm.isLoading = false;
             return vm.movies;
          });
+    }
+    
+    if(movies && movies.length > 0 && old >= 600){
+      vm.movies = JSON.parse(localStorageService.get('movies'));
+      vm.isLoading = false;
+    }else{
+        getData();
       }
 }
 

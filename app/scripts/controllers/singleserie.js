@@ -12,12 +12,15 @@ function SingleSerieCtrl(apiFactory, $routeParams) {
 	var vm = this;
   	var id = $routeParams.id;
   	vm.isLoading = true;
-  		apiFactory.getSerie(id, function(response) { 
+    function getData() {
+  		return apiFactory.getSerie(id, function(response) { 
         	vm.singleserie = response.data;
         	console.log(response.data);
         	vm.isLoading = false;
         	return vm.singleserie;
          });
+    }
+    getData();
 }
 
 angular.module('comicbooksApp')

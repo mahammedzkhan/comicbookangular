@@ -12,12 +12,15 @@ function SingleMovieCtrl(apiFactory, $routeParams) {
 	var vm = this;
     var id = $routeParams.id;
     vm.isLoading = true;
-  		apiFactory.getMovie(id, function(response) { 
+    function getData() {
+  		return apiFactory.getMovie(id, function(response) { 
         	vm.singlemovie = response.data;
         	console.log(response.data);
         	vm.isLoading = false;
         	return vm.singlemovie;
          });
+    }
+    getData();
 }
 
 angular.module('comicbooksApp')
