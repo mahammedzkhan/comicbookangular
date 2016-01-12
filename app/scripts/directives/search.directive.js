@@ -8,7 +8,7 @@
  */
 function searchFunction() {
     return {
-      templateUrl: 'views/search.html',
+      templateUrl: 'views/search.view.html',
       restrict: 'E'
     };
  }
