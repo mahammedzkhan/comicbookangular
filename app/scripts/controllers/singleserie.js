@@ -8,16 +8,18 @@
  * # SingleserieCtrl
  * Controller of the comicbooksApp
  */
-function singleSerieCtrl(apiService, $scope, $routeParams) {
+function SingleSerieCtrl(apiService, $routeParams) {
+	var vm = this;
   	var id = $routeParams.id;
-  	$scope.isLoading = true;
+  	vm.isLoading = true;
   		apiService.getSerie(id, function(response) { 
-        	$scope.singleserie = response.data;
+        	vm.singleserie = response.data;
         	console.log(response.data);
-        	$scope.isLoading = false;
+        	vm.isLoading = false;
+        	return vm.singleserie;
          });
 }
 
 angular.module('comicbooksApp')
-  .controller('SingleserieCtrl', singleSerieCtrl);
+  .controller('SingleSerieCtrl', SingleSerieCtrl);
 })();

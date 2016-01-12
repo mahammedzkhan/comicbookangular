@@ -8,27 +8,29 @@
  * # CharacterCtrl
  * Controller of the comicbooksApp
  */
- function characterCtrl($scope, apiService, localStorageService) {
+function CharacterCtrl(apiService, localStorageService) {
+    var vm = this;
     var characters = localStorageService.get('characters');
     var timestampChars = localStorageService.get('timestampChars');
     var old = Date.now() - timestampChars;
-    $scope.isLoading = true;
+    vm.isLoading = true;
     if( characters && characters.length > 0 && old >= 600) {
-      $scope.characters = JSON.parse(localStorageService.get('characters'));
+      vm.characters = JSON.parse(localStorageService.get('characters'));
       console.log('fetch it from localStorage!!');
-       $scope.isLoading = false;
+       vm.isLoading = false;
     }else{
       console.log('api call!!');
       apiService.getAllCharacters(function(response) { 
-          $scope.characters = response.data;
+          vm.characters = response.data;
             localStorageService.set('characters', JSON.stringify(response.data));
             localStorageService.set('timestampChars', Date.now());
-             $scope.isLoading = false;
+             vm.isLoading = false;
+             return vm.characters;
          });
       }
 }
 
 angular.module('comicbooksApp')
-  .controller('CharacterCtrl', characterCtrl);
+  .controller('CharacterCtrl', CharacterCtrl);
 
 })();

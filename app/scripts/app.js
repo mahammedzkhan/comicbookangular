@@ -27,32 +27,32 @@ angular
       .when('/movies', {
         templateUrl: 'views/movie.html',
         controller: 'MovieCtrl',
-        controllerAs: 'movie'
+        controllerAs: 'movieVm'
       })
       .when('/characters', {
         templateUrl: 'views/character.html',
         controller: 'CharacterCtrl',
-        controllerAs: 'character'
+        controllerAs: 'characterVm'
       })
       .when('/series', {
         templateUrl: 'views/serie.html',
         controller: 'SerieCtrl',
-        controllerAs: 'serie'
+        controllerAs: 'serieVm'
       })
       .when('/series/:id', {
         templateUrl: 'views/singleserie.html',
-        controller: 'SingleserieCtrl',
-        controllerAs: 'serie'
+        controller: 'SingleSerieCtrl',
+        controllerAs: 'singleSerieVm'
       })
       .when('/movies/:id', {
         templateUrl: 'views/singlemovie.html',
-        controller: 'SinglemovieCtrl',
-        controllerAs: 'singlemovie'
+        controller: 'SingleMovieCtrl',
+        controllerAs: 'singleMovieVm'
       })
       .when('/characters/:id', {
         templateUrl: 'views/singlecharacter.html',
-        controller: 'SinglecharacterCtrl',
-        controllerAs: 'singlecharacter'
+        controller: 'SingleCharacterCtrl',
+        controllerAs: 'singleCharacterVm'
       })
       .otherwise({
         redirectTo: '/series'

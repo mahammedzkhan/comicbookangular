@@ -8,16 +8,18 @@
  * # SinglemovieCtrl
  * Controller of the comicbooksApp
  */
-function singleMovieCtrl(apiService, $scope, $routeParams) {
+function SingleMovieCtrl(apiService, $routeParams) {
+	var vm = this;
     var id = $routeParams.id;
-    $scope.isLoading = true;
+    vm.isLoading = true;
   		apiService.getMovie(id, function(response) { 
-        	$scope.singlemovie = response.data;
+        	vm.singlemovie = response.data;
         	console.log(response.data);
-        	$scope.isLoading = false;
+        	vm.isLoading = false;
+        	return vm.singlemovie;
          });
 }
 
 angular.module('comicbooksApp')
-  .controller('SinglemovieCtrl', singleMovieCtrl);
+  .controller('SingleMovieCtrl', SingleMovieCtrl);
 })();

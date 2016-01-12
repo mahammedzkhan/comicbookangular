@@ -8,24 +8,26 @@
  * # SerieCtrl
  * Controller of the comicbooksApp
  */
-function serieCtrl($scope, apiService, localStorageService) {
+function SerieCtrl(apiService, localStorageService) {
+    var vm = this;
     var series = localStorageService.get('series');
     var timestampSeries = localStorageService.get('timestampSeries');
     var old = Date.now() - timestampSeries;
-        $scope.isLoading = true;
+        vm.isLoading = true;
     if(series && series.length > 0 && old >= 600){
-      $scope.series = JSON.parse(localStorageService.get('series'));
-      $scope.isLoading = false;
+      vm.series = JSON.parse(localStorageService.get('series'));
+      vm.isLoading = false;
     }else{
       apiService.getAllSeries(function(response) { 
-          $scope.series = response.data;
+          vm.series = response.data;
             localStorageService.set('series', JSON.stringify(response.data));
             localStorageService.set('timestampSeries', Date.now());
-            $scope.isLoading = false;
+            vm.isLoading = false;
+          return vm.series;
          });
       }
 }
 
 angular.module('comicbooksApp')
-  .controller('SerieCtrl', serieCtrl);
+  .controller('SerieCtrl', SerieCtrl);
 })();
