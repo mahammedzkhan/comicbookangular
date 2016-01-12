@@ -1,5 +1,5 @@
+(function() {
 'use strict';
-
 
 /**
  * @ngdoc characterCtrl function
@@ -31,3 +31,4 @@
 angular.module('comicbooksApp')
   .controller('CharacterCtrl', characterCtrl);
 
+})();

@@ -1,3 +1,4 @@
+(function() {
 'use strict';
 
 /**
@@ -19,3 +20,4 @@ function singleSerieCtrl(apiService, $scope, $routeParams) {
 
 angular.module('comicbooksApp')
   .controller('SingleserieCtrl', singleSerieCtrl);
+})();

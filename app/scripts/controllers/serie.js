@@ -1,3 +1,4 @@
+(function() {
 'use strict';
 
 /**
@@ -27,3 +28,4 @@ function serieCtrl($scope, apiService, localStorageService) {
 
 angular.module('comicbooksApp')
   .controller('SerieCtrl', serieCtrl);
+})();

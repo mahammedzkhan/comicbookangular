@@ -1,3 +1,4 @@
+(function() {
 'use strict';
 
 /**
@@ -57,3 +58,4 @@ angular
         redirectTo: '/series'
       });
   });
+})();

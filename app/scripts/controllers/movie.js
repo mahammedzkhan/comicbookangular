@@ -1,3 +1,4 @@
+(function() {
 'use strict';
 
 /**
@@ -27,3 +28,4 @@
 
 angular.module('comicbooksApp')
   .controller('MovieCtrl', movieCtrl);
+})();
