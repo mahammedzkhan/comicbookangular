@@ -1,14 +1,13 @@
 'use strict';
 
 /**
- * @ngdoc function
+ * @ngdoc singleCharacterCtrl function
  * @name comicbooksApp.controller:SinglecharacterCtrl
  * @description
  * # SinglecharacterCtrl
  * Controller of the comicbooksApp
  */
-angular.module('comicbooksApp')
-  .controller('SinglecharacterCtrl', function ($routeParams, apiService, $scope) {
+function singleCharacterCtrl($routeParams, apiService, $scope) {
     var id = $routeParams.id;
     $scope.isLoading = true;
   		apiService.getCharacter(id, function(response) { 
@@ -16,4 +15,7 @@ angular.module('comicbooksApp')
         	console.log(response.data);
         	$scope.isLoading = false;
          });
-  });
+ }
+
+angular.module('comicbooksApp')
+  .controller('SinglecharacterCtrl', singleCharacterCtrl);

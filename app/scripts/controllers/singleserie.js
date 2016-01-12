@@ -1,14 +1,13 @@
 'use strict';
 
 /**
- * @ngdoc function
+ * @ngdoc singleSerieCtrl function
  * @name comicbooksApp.controller:SingleserieCtrl
  * @description
  * # SingleserieCtrl
  * Controller of the comicbooksApp
  */
-angular.module('comicbooksApp')
-  .controller('SingleserieCtrl', function (apiService, $scope, $routeParams) {
+function singleSerieCtrl(apiService, $scope, $routeParams) {
   	var id = $routeParams.id;
   	$scope.isLoading = true;
   		apiService.getSerie(id, function(response) { 
@@ -16,4 +15,7 @@ angular.module('comicbooksApp')
         	console.log(response.data);
         	$scope.isLoading = false;
          });
-  });
+}
+
+angular.module('comicbooksApp')
+  .controller('SingleserieCtrl', singleSerieCtrl);
