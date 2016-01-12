@@ -1,16 +1,14 @@
-<div class="row">
-
-<search></search>
-  <h1>Comic series</h1>
-  <div class="row">
-  <div ng-repeat-start="serie in series.results | filter:search:strict" class="col-md-4">
-  <a href="#/series/{{serie.id}}">
-    <h3>{{serie.name}}</h3>
-    <img ng-src="{{serie.image.small_url}}" alt="{{serie.name}}" title="{{serie.name}}" width="200px" height="300px">
-    <p>{{serie.deck}}</p>
-  </a>
-  </div>
-  <div class="clearfix" ng-if="$index%3==2"></div>
-  <div ng-repeat-end=""></div>
-  </div>
-</div>
+<section>
+  <search></search>
+      <md-progress-circular md-mode="indeterminate" ng-show="isLoading"></md-progress-circular>
+  <md-grid-list md-cols-xs="2" md-cols-sm="4" md-cols="8" md-row-height="1:1" ng-hide="isLoading"> 
+    <md-grid-tile class="gray" ng-repeat="serie in series.results | filter:search:strict">
+        <a ng-href="#/series/{{serie.id}}">
+        <md-grid-tile-header>
+          <h3>{{serie.name}}</h3>
+        </md-grid-tile-header>
+        <img ng-src="{{serie.image.small_url}}" alt="{{serie.name}}" title="{{serie.name}}" width="100%" height="300px">
+        </a>
+    </md-grid-tile>
+  </md-grid-list>
+</section>

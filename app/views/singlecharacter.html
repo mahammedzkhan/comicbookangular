@@ -1,10 +1,35 @@
-<div>
-  <div class="col-md-12">
-    <h1>{{singlecharacter.results[0].name}}</h1>
-        <p><b>Aliases:</b> {{singlecharacter.results[0].aliases}} </p>
-        <p><b>Real name:</b> {{singlecharacter.results[0].real_name | date}} </p>
-    <img ng-src="{{singlecharacter.results[0].image.medium_url}}" alt="{{singlecharacter.results[0].name}}" title="{{singlecharacter.results[0].name}}">
-    <div ng-bind-html="singlecharacter.results[0].description"></div>
-  </div>
+<md-content class="md-padding" layout="row" layout-wrap layout-align="center start" layout-xs="column">
+<md-progress-circular md-mode="indeterminate" ng-show="isLoading"></md-progress-circular>
+    <div flex="50" flex-sm="100" flex-xs="100" layout="column" ng-hide="isLoading">
+		<md-card>
+			<md-card-content>
+				<h1 class="md-title">{{singlecharacter.results[0].name}}</h1>
+        		<p class="md-body-1"><b class="md-body-2">Aliases:</b> {{singlecharacter.results[0].aliases}} </p>
+        		<p class="md-body-1"><b class="md-body-2">Real name:</b> {{singlecharacter.results[0].real_name | date}} </p>
+        		    <img ng-src="{{singlecharacter.results[0].image.medium_url}}" alt="{{singlecharacter.results[0].name}}" title="{{singlecharacter.results[0].name}}">
+
+        	</md-card-content>
+        </md-card>
+
+        <md-card>
+			<md-card-content>
+				<p class="md-subhead" ng-if="singlecharacter.results[0].gender == '1' "><b class="md-body-2">Gender</b> Male</p>
+			    <p class="md-subhead" ng-if="singlecharacter.results[0].gender == '2' "><b class="md-body-2">Gender</b> Female</p>
+        		<p class="md-subhead"><b class="md-body-2">First appeareance</b> {{singlecharacter.results[0].first_appeared_in_issue.name}}</p>
+        		<p class="md-subhead"><b class="md-body-2">Appears in</b> {{singlecharacter.results[0].count_of_issue_appearances}} issues</p>
+        		<p class="md-subhead"><b class="md-body-2">Character type</b> {{singlecharacter.results[0].origin.name}} </p>
+
+        	</md-card-content>
+        </md-card>
+     </div>
+    <div flex="50" flex-sm="100" flex-xs="100" layout="column" ng-hide="isLoading">
+	    <md-card>
+			<md-card-content>
+	    <md-content ng-bind-html="singlecharacter.results[0].description"></md-content>
+	    </md-card-content>
+	    </md-card>
+	</div>
 </div>
+</md-content>
+
 

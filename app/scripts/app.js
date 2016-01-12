@@ -12,7 +12,8 @@ angular
   .module('comicbooksApp', [
     'ngRoute',
     'ngSanitize',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'ngMaterial'
   ])
   .config(function ($routeProvider, $httpProvider, localStorageServiceProvider) {
     $httpProvider.defaults.useXDomain = true;
