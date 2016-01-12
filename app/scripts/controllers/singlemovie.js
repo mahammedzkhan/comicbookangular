@@ -1,14 +1,13 @@
 'use strict';
 
 /**
- * @ngdoc function
+ * @ngdoc singleMovieCtrl function
  * @name comicbooksApp.controller:SinglemovieCtrl
  * @description
  * # SinglemovieCtrl
  * Controller of the comicbooksApp
  */
-angular.module('comicbooksApp')
-  .controller('SinglemovieCtrl', function (apiService, $scope, $routeParams) {
+function singleMovieCtrl(apiService, $scope, $routeParams) {
     var id = $routeParams.id;
     $scope.isLoading = true;
   		apiService.getMovie(id, function(response) { 
@@ -16,4 +15,7 @@ angular.module('comicbooksApp')
         	console.log(response.data);
         	$scope.isLoading = false;
          });
-  });
+}
+
+angular.module('comicbooksApp')
+  .controller('SinglemovieCtrl', singleMovieCtrl);
