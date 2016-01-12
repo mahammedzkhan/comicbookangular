@@ -1,6 +1,6 @@
 <section>
 <search></search>
-<md-progress-circular md-mode="indeterminate" ng-show="isLoading"></md-progress-circular>
+<md-progress-circular md-mode="indeterminate" ng-show="characterVm.isLoading"></md-progress-circular>
   <md-grid-list md-cols-xs="2" md-cols-sm="4" md-cols="8" md-row-height="1:1" ng-hide="isLoading"> 
     <md-grid-tile class="gray" ng-repeat="character in characterVm.characters.results | filter:search:strict">
         <a ng-href="#/characters/{{character.id}}">

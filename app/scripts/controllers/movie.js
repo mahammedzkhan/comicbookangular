@@ -13,7 +13,7 @@ function MovieCtrl(apiService, localStorageService) {
     var movies = localStorageService.get('movies');
     var timestampMovies = localStorageService.get('timestampMovies');
     var old = Date.now() - timestampMovies;
-        vm.isLoading = true;
+    vm.isLoading = true;
     if(movies && movies.length > 0 && old >= 600){
       vm.movies = JSON.parse(localStorageService.get('movies'));
       vm.isLoading = false;
