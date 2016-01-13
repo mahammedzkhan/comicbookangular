@@ -1,3 +1,4 @@
+(function() {
 'use strict';
 
 /**
@@ -7,23 +8,30 @@
  * # MovieCtrl
  * Controller of the comicbooksApp
  */
- function movieCtrl($scope, apiService, localStorageService) {
+function MovieCtrl(apiFactory, localStorageService) {
+    var vm = this;
     var movies = localStorageService.get('movies');
     var timestampMovies = localStorageService.get('timestampMovies');
     var old = Date.now() - timestampMovies;
-        $scope.isLoading = true;
-    if(movies && movies.length > 0 && old >= 600){
-      $scope.movies = JSON.parse(localStorageService.get('movies'));
-      $scope.isLoading = false;
-    }else{
-      apiService.getAllMovies(function(response) { 
-          $scope.movies = response.data;
+    vm.isLoading = true;
+    function getData() {
+      return apiFactory.getAllMovies(function(response) { 
+          vm.movies = response.data;
             localStorageService.set('movies', JSON.stringify(response.data));
             localStorageService.set('timestampMovies', Date.now());
-            $scope.isLoading = false;
+            vm.isLoading = false;
+            return vm.movies;
          });
+    }
+    
+    if(movies && movies.length > 0 && old >= 600){
+      vm.movies = JSON.parse(localStorageService.get('movies'));
+      vm.isLoading = false;
+    }else{
+        getData();
       }
 }
 
 angular.module('comicbooksApp')
-  .controller('MovieCtrl', movieCtrl);
+  .controller('MovieCtrl', MovieCtrl);
+})();

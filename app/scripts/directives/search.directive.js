@@ -6,10 +6,11 @@
  * @description
  * # search
  */
-angular.module('comicbooksApp')
-  .directive('search', function () {
+function searchFunction() {
     return {
-      templateUrl: 'views/search.html',
+      templateUrl: 'views/search.view.html',
       restrict: 'E'
     };
-  });
+ }
+angular.module('comicbooksApp')
+  .directive('search', searchFunction);

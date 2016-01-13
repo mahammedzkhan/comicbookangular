@@ -1,17 +1,18 @@
 'use strict';
 
 /**
- * @ngdoc service
- * @name comicbooksApp.apiService
+ * @ngdoc factory
+ * @name comicbooksApp.apiFactory
  * @description
- * # apiService
+ * # apiFactory
  * Service in the comicbooksApp.
  */
 angular.module('comicbooksApp')
-  .service('apiService', function ($http) {
+  .factory('apiFactory', function ($http) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     var apikey = '?api_key=72545f1eff02ef47cb67ea2e27284a19924805d4';
     var args = '&json_callback=JSON_CALLBACK&format=jsonp';
+    var apiFactory = this;
 
     this.getAllSeries = function(callback){
 
@@ -64,4 +65,6 @@ angular.module('comicbooksApp')
       responseType: 'jsonp'
     }).then(callback);
     };
+
+    return apiFactory;
   });

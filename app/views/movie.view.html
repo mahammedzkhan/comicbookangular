@@ -1,8 +1,8 @@
 <section>
   <search></search>
-      <md-progress-circular md-mode="indeterminate" ng-show="isLoading"></md-progress-circular>
-  <md-grid-list md-cols-xs="2" md-cols-sm="4" md-cols="8" md-row-height="1:1" ng-hide="isLoading"> 
-    <md-grid-tile class="gray" ng-repeat="movie in movies.results | filter:search:strict">
+      <md-progress-circular md-mode="indeterminate" ng-show="movieVm.isLoading"></md-progress-circular>
+  <md-grid-list md-cols-xs="2" md-cols-sm="4" md-cols="8" md-row-height="1:1" ng-hide="movieVm.isLoading"> 
+    <md-grid-tile class="gray" ng-repeat="movie in movieVm.movies.results | filter:search:strict">
         <a ng-href="#/movies/{{movie.id}}">
         <md-grid-tile-header>
           <h3>{{movie.name}}</h3>

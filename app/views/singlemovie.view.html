@@ -1,0 +1,30 @@
+<md-content class="md-padding" layout="row" layout-wrap layout-align="center start" layout-xs="column">
+<md-progress-circular md-mode="indeterminate" ng-show="singleMovieVm.isLoading"></md-progress-circular>
+    <div flex="50" flex-sm="100" flex-xs="100" layout="column" ng-hide="singleMovieVm.isLoading">
+        <md-card>
+            <md-card-content>
+                <h1 class="md-title">{{singleMovieVm.singlemovie.results[0].name}}</h1>
+                <img ng-src="{{singleMovieVm.singlemovie.results[0].image.medium_url}}" alt="{{singleMovieVm.singlemovie.results[0].name}}" title="{{singleMovieVm.singlemovie.results[0].name}}">
+            </md-card-content>
+        </md-card>
+    </div>
+    <div flex="50" flex-sm="100" flex-xs="100" layout="column" ng-hide="isLoading"> 
+    <md-card ng-if="singleMovieVm.singlemovie.results[0].description.length > 0">
+        <md-card-content>
+            <md-content ng-bind-html="singleMovieVm.singlemovie.results[0].description"></md-content>
+        </md-card-content>
+    </md-card>
+    <md-card>
+        <md-card-content>
+            <md-content>
+                <p><b>Rating:</b> {{singleMovieVm.singlemovie.results[0].rating}} </p>
+                <p><b>Release date:</b> {{singleMovieVm.singlemovie.results[0].release_date | date}} </p>
+                <p><b>Budget:</b> {{singleMovieVm.singlemovie.results[0].budget | currency}} </p>
+                <p><b>Box office:</b> {{singleMovieVm.singlemovie.results[0].box_office_revenue | currency}} </p>
+                <h3 ng-show="singleMovieVm.singlemovie.results[0].studios">Studio(s)</h3>
+                <p ng-repeat="studio in singleMovieVm.singlemovie.results[0].studios" ng-show="studio.name">{{studio.name}}</p>
+            </md-content>
+        </md-card-content>
+    </md-card>
+    </div>
+</md-content>
